@@ -94,7 +94,7 @@ position = Vector2(1.00003, -15)
 scale = Vector2(3.15625, 3.03571)
 sprite_frames = SubResource("SpriteFrames_0lylo")
 animation = &"hit"
-frame_progress = 0.120439
+frame_progress = 0.132641
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.73316, 1.48699)
