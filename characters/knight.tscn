@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ce7v52y74yr56"]
+[gd_scene load_steps=14 format=3 uid="uid://ce7v52y74yr56"]
 
 [ext_resource type="Script" path="res://characters/knight.gd" id="1_f4ncn"]
 [ext_resource type="Texture2D" uid="uid://cgxa8uaoskbu1" path="res://assets/frames/knight_f_idle_anim_f0.png" id="1_te6k4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://jcfsher30glj" path="res://assets/frames/knight_f_run_anim_f1.png" id="6_orab4"]
 [ext_resource type="Texture2D" uid="uid://cpfgfswhppj4a" path="res://assets/frames/knight_f_run_anim_f2.png" id="7_01hm8"]
 [ext_resource type="Texture2D" uid="uid://b0xall15qcoo3" path="res://assets/frames/knight_f_run_anim_f3.png" id="8_x3tv8"]
+[ext_resource type="Texture2D" uid="uid://bple14y8ybrmv" path="res://assets/LightSprite.png" id="11_pp8kv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0lylo"]
 animations = [{
@@ -83,7 +84,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls2bc"]
-size = Vector2(46.5337, 50.5578)
+size = Vector2(46.5337, 62.4537)
 
 [node name="knight" type="CharacterBody2D"]
 scale = Vector2(0.278633, 0.336249)
@@ -97,6 +98,17 @@ animation = &"hit"
 frame_progress = 0.132641
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.73316, 1.48699)
+position = Vector2(1.73316, -4.46097)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ls2bc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.3, 1.3)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.635294, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 5.0
+texture = ExtResource("11_pp8kv")
