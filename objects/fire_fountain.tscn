@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://budt0ocqp4og7"]
+
+[ext_resource type="Script" path="res://objects/fire_fountain.gd" id="1_74lre"]
+[ext_resource type="Texture2D" uid="uid://cowod5t61beph" path="res://assets/frames/wall_fountain_mid_red_anim_f0.png" id="1_p6sjv"]
+[ext_resource type="Texture2D" uid="uid://4lsmydeel724" path="res://assets/frames/wall_fountain_mid_red_anim_f1.png" id="2_l2446"]
+[ext_resource type="Texture2D" uid="uid://cvi3t8jg3w7vx" path="res://assets/frames/wall_fountain_mid_red_anim_f2.png" id="3_vsoj3"]
+[ext_resource type="Texture2D" uid="uid://cwklpfxn4yub3" path="res://assets/frames/wall_fountain_basin_red_anim_f0.png" id="4_axa8q"]
+[ext_resource type="Texture2D" uid="uid://dl2jmawlvvsff" path="res://assets/frames/wall_fountain_basin_red_anim_f1.png" id="5_o65cp"]
+[ext_resource type="Texture2D" uid="uid://ly680dji3b44" path="res://assets/frames/wall_fountain_basin_red_anim_f2.png" id="6_kruyk"]
+[ext_resource type="Texture2D" uid="uid://bple14y8ybrmv" path="res://assets/LightSprite.png" id="7_utekx"]
+[ext_resource type="Texture2D" uid="uid://lglab7436lqv" path="res://assets/frames/wall_fountain_top_2.png" id="9_cb3en"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cb0yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p6sjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l2446")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vsoj3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wgqk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_axa8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o65cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kruyk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7mc7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfy5r"]
+size = Vector2(16, 32)
+
+[node name="fire-fountain" type="Sprite2D"]
+script = ExtResource("1_74lre")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cb0yt")
+frame_progress = 0.83659
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_4wgqk")
+frame_progress = 0.0685946
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.933333, 0.556863, 0.180392, 1)
+texture = ExtResource("7_utekx")
+texture_scale = 0.3
+
+[node name="WallFountainTop3" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("9_cb3en")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_7mc7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dfy5r")
