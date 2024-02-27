@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://m43k33q6g1q7"]
+
+[ext_resource type="Texture2D" uid="uid://dgyrnhas4wqi4" path="res://assets/frames/weapon_bow.png" id="1_kyeou"]
+[ext_resource type="Texture2D" uid="uid://hsxf4xxrsxl2" path="res://assets/frames/weapon_bow_2.png" id="2_fi2rw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aei2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kyeou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fi2rw")
+}],
+"loop": true,
+"name": &"aim",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0inr"]
+radius = 14.0357
+
+[node name="bow" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_aei2i")
+animation = &"aim"
+frame_progress = 0.990921
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l0inr")

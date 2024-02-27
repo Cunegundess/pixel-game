@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2hsdaogeywal"]
+[gd_scene load_steps=22 format=3 uid="uid://d2hsdaogeywal"]
 
-[ext_resource type="PackedScene" uid="uid://ce7v52y74yr56" path="res://characters/knight.tscn" id="1_ade1x"]
+[ext_resource type="PackedScene" uid="uid://ce7v52y74yr56" path="res://characters/player.tscn" id="1_ade1x"]
 [ext_resource type="Texture2D" uid="uid://b62rbgmm4d702" path="res://assets/0x72_DungeonTilesetII_v1.6.png" id="2_bf0s5"]
+[ext_resource type="Resource" uid="uid://dxwtfh8j55sod" path="res://inventory/player_inventory.tres" id="2_qsiy5"]
 [ext_resource type="PackedScene" uid="uid://budt0ocqp4og7" path="res://objects/fire_fountain.tscn" id="4_fy5le"]
-[ext_resource type="PackedScene" uid="uid://cqnewgpvjbqda" path="res://objects/water_fountain.tscn" id="4_m4ki2"]
+[ext_resource type="PackedScene" uid="uid://4erw0yo0omrn" path="res://inventory/inv_ui.tscn" id="5_r0ij2"]
+[ext_resource type="PackedScene" uid="uid://bisajqb3n1syk" path="res://objects/coin_collectable.tscn" id="6_r1wd2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w5t83"]
 polygon = PackedVector2Array(8, -8, 8, 8, 6.87219, 8, 6.625, -8)
@@ -2019,9 +2021,10 @@ sources/0 = SubResource("TileSetAtlasSource_wufi3")
 position = Vector2(59, 69)
 scale = Vector2(1.09838, 1)
 
-[node name="knight" parent="." instance=ExtResource("1_ade1x")]
+[node name="player" parent="." instance=ExtResource("1_ade1x")]
 light_mask = 3
 position = Vector2(81.0284, 381)
+inv = ExtResource("2_qsiy5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -2037,10 +2040,6 @@ position = Vector2(-4.55216, 231)
 
 [node name="fire-fountain4" parent="." instance=ExtResource("4_fy5le")]
 position = Vector2(172.072, 231)
-
-[node name="water-fountain" parent="." instance=ExtResource("4_m4ki2")]
-visible = false
-position = Vector2(-16.3878, 4)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(3.64173, -1)
@@ -2064,3 +2063,20 @@ layer_4/tile_data = PackedInt32Array(851983, 196608, 9, 917519, 196608, 10, 9830
 layer_5/name = "decors"
 layer_5/z_index = -1
 layer_5/tile_data = PackedInt32Array(524285, 393216, 5, 458764, 393216, 5, -393204, 393216, 5, -327683, 393216, 5, -327668, 393216, 6, -262132, 393216, 6, -196611, 393216, 6, -262147, 393216, 6, -196596, 393216, 7, -131075, 393216, 7, -262145, 65536, 2, -327670, 65536, 2, -327676, 65536, 2, -327675, 65536, 2, 458758, 393216, 5, 458755, 393216, 5, 786438, 393216, 5, 786435, 393216, 5, 851974, 393216, 6, 917507, 393216, 6, 851971, 393216, 6, 917510, 393216, 6, 983046, 393216, 7, 983043, 393216, 7, 786446, 393216, 5, 851982, 393216, 6, 917518, 393216, 6, 983054, 393216, 7, 786455, 393216, 5, 917527, 393216, 6, 851991, 393216, 6, 983063, 393216, 7, 1441798, 393216, 5, 1441795, 393216, 5, 1441806, 393216, 5, 1572867, 393216, 6, 1507331, 393216, 6, 1507334, 393216, 6, 1572870, 393216, 6, 1507342, 393216, 6, 1572878, 393216, 6, 917521, 393216, 6, 851985, 393216, 6, 983057, 393216, 7, 786449, 393216, 5, 1638406, 393216, 7, 1638414, 393216, 7, 1638403, 393216, 7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(0, 15)
+transform = Transform2D(1, 0, 0, 1, 0, 15)
+
+[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("5_r0ij2")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+grow_horizontal = 2
+
+[node name="coin_collectable" parent="." instance=ExtResource("6_r1wd2")]
+
+[node name="coin_collectable2" parent="." instance=ExtResource("6_r1wd2")]
+position = Vector2(94.6849, 30)
