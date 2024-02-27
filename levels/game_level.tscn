@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2hsdaogeywal"]
+[gd_scene load_steps=23 format=3 uid="uid://d2hsdaogeywal"]
 
 [ext_resource type="PackedScene" uid="uid://ce7v52y74yr56" path="res://characters/player.tscn" id="1_ade1x"]
 [ext_resource type="Texture2D" uid="uid://b62rbgmm4d702" path="res://assets/0x72_DungeonTilesetII_v1.6.png" id="2_bf0s5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://budt0ocqp4og7" path="res://objects/fire_fountain.tscn" id="4_fy5le"]
 [ext_resource type="PackedScene" uid="uid://4erw0yo0omrn" path="res://inventory/inv_ui.tscn" id="5_r0ij2"]
 [ext_resource type="PackedScene" uid="uid://bisajqb3n1syk" path="res://objects/coin_collectable.tscn" id="6_r1wd2"]
+[ext_resource type="PackedScene" uid="uid://cbmqaqhhmth1m" path="res://characters/big_demon_enemy.tscn" id="7_h0wur"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w5t83"]
 polygon = PackedVector2Array(8, -8, 8, 8, 6.87219, 8, 6.625, -8)
@@ -2080,3 +2081,6 @@ grow_horizontal = 2
 
 [node name="coin_collectable2" parent="." instance=ExtResource("6_r1wd2")]
 position = Vector2(94.6849, 30)
+
+[node name="big_demon_enemy" parent="." instance=ExtResource("7_h0wur")]
+position = Vector2(335.949, 332)
